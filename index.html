@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My Objects</title>
+</head>
+
+<body>
+    <h1>Advanced Objects GP</h1>
+    <script>
+        console.log('hello world')
+        class player {
+            constructor (foofoo) {
+                this.text = foofoo
+                this.points = 0
+            }
+            greet() {
+                console.log(`Hello my name is ${this.text}`)
+            }
+            plays() {
+                let randomNum = Math.floor(Math.random() * 10)
+                this.points = randomNum
+                return (`i have gained ${randomNum} and i now have ${this.points} points`)
+            }
+        }
+        let pico = new player ('FOO')
+        let fizzo= new player ('swagging')
+
+        class volumeRocker {
+            state = ''
+
+            print(){
+                console.log(`${this.state} (${this.state.length})`)
+            }
+
+            up() {
+                this.state += '▮'
+                this.print()
+            }
+
+            down() {
+                this.state = this.state.slice(0, this.state.length - 1)
+                this.print()
+            }
+        }
+        let rocker = new volumeRocker()
+
+
+        class trafficLight {
+            constructor(address) {
+                this.address = address
+                this.colors = ['red', 'green', 'orange']
+                this.color = this.colors[0]
+            }
+            print() {
+                console.log(`the color is ${this.color}`)
+            }
+            change() {
+                let currentcolor = this.colors.indexOf(this.color)
+                console.log(`is it the correct current color index ${currentcolor}`)
+                let nextIndex = currentcolor + 1
+                console.log(`dose it add 1 to the index ${nextIndex}`)
+                if (nextIndex >  2) nextIndex = 0
+                this.color = this.colors[nextIndex]
+                this.print()
+            }
+        }
+        let light = new trafficLight('mcdonalds')
+    </script>
+
+</body>
+
+</html>
